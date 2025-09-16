@@ -101,8 +101,12 @@ small { font-size:.82rem; }
 
 /* Clients */
 .clients-logos { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:46px; }
-.client-logo { background:#fff; padding:30px 34px; border-radius:26px; height:74px; display:flex; align-items:center; box-shadow:0 8px 30px -10px rgba(0,0,0,.4); }
-.client-logo img { height:100%; filter:grayscale(40%) contrast(1.1); }
+/* Client logo cards refined for better visual balance */
+.client-logo { background:#fff; padding:14px 22px; border-radius:26px; min-height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px -10px rgba(0,0,0,.4); }
+.client-logo img { max-height:70px; max-width:150px; width:auto; height:auto; object-fit:contain; filter:grayscale(40%) contrast(1.1); transition:transform .25s ease, filter .25s ease; }
+.client-logo:hover img { transform:scale(1.05); filter:grayscale(0%) contrast(1.05); }
+/* Optional modifier for very light (near white) logos */
+.client-logo.invert img { filter:invert(1) grayscale(10%) contrast(1.05); }
 
 /* Contact */
 .contact-wrap { display:grid; gap:50px; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); align-items:start; }
