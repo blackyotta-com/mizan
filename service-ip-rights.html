@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Intellectual Property & Online Rights | Mizan Law Firm</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Copyrights, trademarks, patents, digital content protection, anti-piracy enforcement and IP litigation support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    body { background: #131a2a; color: #e6f7f2; font-family: Roboto, Arial, sans-serif; margin:0; }
-    .container { max-width: 700px; margin: 48px auto; padding: 32px; background: #222a3c; border-radius: 20px; }
-    h1 { color: #10c27e; font-size: 2.3rem; margin-bottom: 24px; }
-    p { font-size: 1.15rem; line-height: 1.8; }
-    a { color: #10c27e; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 22px; }
+    body{font-family:'Inter',sans-serif;}
+    .service-hero{padding:110px 0 60px; background:linear-gradient(140deg,#0d141e,#14202c 55%,#05251c);} 
+    .breadcrumbs{font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;color:var(--color-text-alt);margin-bottom:24px;} 
+    .breadcrumbs a{color:var(--color-accent);text-decoration:none;} 
+    .service-content{max-width:900px;margin:0 auto;padding:0 0 60px;} 
+    .service-content h1{font-size:clamp(2rem,3.6vw,3rem);background:linear-gradient(95deg,var(--color-text),var(--color-accent));-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 26px;} 
+    .pill-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;} 
+    .pill-list li{background:var(--color-surface);padding:10px 16px;border-radius:40px;font-size:.78rem;letter-spacing:.5px;font-weight:600;color:var(--color-accent);box-shadow:0 0 0 1px rgba(17,216,144,.25);} 
+    article p{font-size:1.06rem;line-height:1.7;} 
   </style>
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
-    <h1>Intellectual Property & Online Rights</h1>
-    <p>
-      Mizan protects your intellectual property and digital rights, including:<br><br>
-      <strong>• Copyright, Trademark, and Patent Law</strong><br>
-      <strong>• Digital Content Protection</strong><br>
-      <strong>• Trade Secrets and Confidentiality</strong><br>
-      <strong>• Anti-Piracy and Data Theft Action</strong><br>
-      <strong>• Enforcement and Litigation</strong><br><br>
-      We defend creators, inventors, and digital businesses against IP violations and unfair competition.<br>
-      <a href="index.html#contact" style="color:#10c27e;">Contact us</a> for IP protection and enforcement.
-    </p>
-  </div>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand"><img src="mizan-logo.png" alt="Mizan logo" class="brand-logo" /><span class="brand-name">Mizan</span></a>
+      <a href="index.html#services" class="btn btn-outline" style="font-size:.85rem;">Back</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="service-hero">
+      <div class="container service-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> · <a href="index.html#services">Services</a> · IP Rights</nav>
+        <h1>Intellectual Property & Online Rights</h1>
+        <ul class="pill-list"><li>Copyright</li><li>Trademarks</li><li>Patents</li><li>Anti-Piracy</li><li>Licensing</li><li>Enforcement</li></ul>
+        <article>
+          <p>We protect intangible assets across creative, technical and commercial domains—aligning registration, monitoring, and enforcement with actionable risk insights.</p>
+          <p><strong>Coverage includes:</strong><br> - Copyright, trademark & patent strategy<br> - Digital content and DRM monitoring<br> - Trade secrets & confidential info safeguarding<br> - Anti-piracy takedowns & source tracing<br> - Parallel import & unfair competition actions<br> - Litigation support & expert submissions</p>
+          <p>Our approach integrates legal protection with technical measures and rapid response escalation.</p>
+          <p><a class="btn" href="index.html#contact">Request IP Support</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p class="copy" style="margin:0;">© 2025 Mizan Law Firm.</p></footer>
 </body>
 </html>

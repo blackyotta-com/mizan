@@ -45,11 +45,17 @@
     }
   });
 
-  // Service cards clickable
+  // Service cards clickable with language-aware linking
   document.querySelectorAll('.service-card').forEach(card=>{
     card.addEventListener('click', ()=>{
-      const link = card.dataset.link;
-      if(link) window.open(link,'_blank');
+      const baseLink = card.dataset.link; // e.g., service-digital-forensics.html
+      if(!baseLink) return;
+      const isArabic = document.body.dir === 'rtl';
+      const localized = isArabic
+        ? baseLink.replace(/(service-[^.]+)(\.html)$/,'$1-ar$2')
+        : baseLink.replace(/-ar(\.html)$/,'$1');
+      const finalLink = localized;
+      window.open(finalLink,'_blank');
     });
   });
 

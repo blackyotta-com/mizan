@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>General Law Cases | Mizan Law Firm</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="description" content="Criminal, family, civil, real estate, employment and personal injury matters with strategic courtroom representation." />
   <style>
-    body { background: #131a2a; color: #e6f7f2; font-family: Roboto, Arial, sans-serif; margin:0; }
-    .container { max-width: 700px; margin: 48px auto; padding: 32px; background: #222a3c; border-radius: 20px; }
-    h1 { color: #10c27e; font-size: 2.3rem; margin-bottom: 24px; }
-    p { font-size: 1.15rem; line-height: 1.8; }
-    a { color: #10c27e; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 22px; }
+    .service-hero{padding:110px 0 60px; background:linear-gradient(140deg,#0d141e,#14202c 55%,#05251c);} 
+    .breadcrumbs{font-size:.75rem;letter-spacing:.5px; text-transform:uppercase; color:var(--color-text-alt); margin-bottom:24px;} 
+    .breadcrumbs a{color:var(--color-accent); text-decoration:none;} 
+    .service-content{max-width:900px; margin:0 auto; padding:0 0 60px;} 
+    .service-content h1{font-size:clamp(2rem,3.6vw,3rem); background:linear-gradient(95deg,var(--color-text),var(--color-accent)); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0 0 26px;} 
+    .pill-list{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px;} 
+    .pill-list li{background:var(--color-surface); padding:10px 16px; border-radius:40px; font-size:.78rem; letter-spacing:.5px; font-weight:600; color:var(--color-accent); box-shadow:0 0 0 1px rgba(17,216,144,.25);} 
+    article p{font-size:1.02rem;} 
   </style>
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
-    <h1>General Law Cases</h1>
-    <p>
-      At Mizan, we cover a broad range of general law cases, including:<br><br>
-      <strong>• Criminal Defense</strong> – Protecting your rights and ensuring a fair trial.<br>
-      <strong>• Family Law</strong> – Divorce, custody, inheritance, and family disputes.<br>
-      <strong>• Real Estate</strong> – Contracts, property disputes, and due diligence.<br>
-      <strong>• Personal Injury</strong> – Compensation for accidents and negligence.<br>
-      <strong>• Employment Law</strong> – Labor rights, unfair dismissal, and contracts.<br>
-      <strong>• Civil Litigation</strong> – Resolving disputes and claims.<br><br>
-      Our experienced attorneys will represent you with dedication and expertise. <br>
-      <a href="index.html#contact" style="color:#10c27e;">Contact us</a> for a detailed consultation.
-    </p>
-  </div>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand"><img src="mizan-logo.png" alt="Mizan Logo" class="brand-logo" /><span class="brand-name">Mizan</span></a>
+      <a href="index.html#services" class="btn btn-outline" style="font-size:.85rem;">← Back</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="service-hero">
+      <div class="container service-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> · <a href="index.html#services">Services</a> · General Law</nav>
+        <h1>General Law Cases</h1>
+        <ul class="pill-list"><li>Criminal</li><li>Family</li><li>Real Estate</li><li>Employment</li><li>Civil</li><li>Injury</li></ul>
+        <article>
+          <p>Our general law practice spans criminal defense, family matters, civil litigation, employment disputes, real estate transactions and personal injury claims—delivering strategic representation focused on outcomes.</p>
+          <p><strong>We cover:</strong><br> - Criminal Defense & investigations<br> - Family Law (divorce, custody, inheritance)<br> - Real Estate contracts & property disputes<br> - Personal Injury & negligence claims<br> - Employment & labor disputes<br> - Civil litigation & dispute resolution</p>
+          <p>Each case is handled with evidence-grounded analysis, clear communication and courtroom readiness.</p>
+          <p><a class="btn" href="index.html#contact">Request Counsel</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p class="copy" style="margin:0;">© 2025 Mizan Law Firm.</p></footer>
 </body>
 </html>
 
