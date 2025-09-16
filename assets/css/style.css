@@ -45,7 +45,7 @@ small { font-size:.82rem; }
 .site-header { position:sticky; top:0; z-index:60; backdrop-filter:blur(18px) saturate(160%); background:rgba(15,20,29,0.82); border-bottom:1px solid rgba(255,255,255,.06); }
 .navbar { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:84px; }
 .brand { display:flex; align-items:center; gap:14px; text-decoration:none; }
-.brand-logo { height:199px; width:199px; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.4)); transition:transform .25s ease; }
+.brand-logo { height:64px; width:64px; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.4)); transition:transform .25s ease; }
 .brand-logo:hover { transform:scale(1.05); }
 @media (max-width:600px){
   .brand-logo { height:58px; width:58px; }
@@ -71,6 +71,7 @@ small { font-size:.82rem; }
 
 /* Hero */
 .hero { position:relative; padding:120px 0 110px; background:radial-gradient(circle at 65% 40%,rgba(17,216,144,.25),transparent 60%), linear-gradient(140deg,#0d141e,#14202c 55%,#05251c); overflow:hidden; }
+.hero:after { content:""; position:absolute; inset:0; background:url('../mizan-logo.png') center/60% no-repeat; opacity:.5; mix-blend-mode:overlay; pointer-events:none; filter:grayscale(10%) saturate(120%) brightness(1.1); }
 .hero:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(17,216,144,.07),transparent 70%); pointer-events:none; }
 .hero-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:60px; align-items:center; }
 .hero-copy h1 { font-size:clamp(2.2rem,4.3vw,3.7rem); font-weight:800; letter-spacing:1px; margin:0 0 20px; background:linear-gradient(92deg,var(--color-text) 30%,var(--color-accent) 120%); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -106,8 +107,8 @@ small { font-size:.82rem; }
 /* Clients */
 .clients-logos { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:46px; }
 /* Client logo cards refined for better visual balance */
-.client-logo { background:#fff; padding:14px 22px; border-radius:26px; min-height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px -10px rgba(0,0,0,.4); }
-.client-logo img { max-height:70px; max-width:150px; width:auto; height:auto; object-fit:contain; filter:grayscale(40%) contrast(1.1); transition:transform .25s ease, filter .25s ease; }
+.client-logo { background:#fff; padding:22px 36px; border-radius:36px; min-height:160px; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 34px -12px rgba(0,0,0,.45); }
+.client-logo img { max-height:130px; max-width:300px; width:auto; height:auto; object-fit:contain; filter:grayscale(35%) contrast(1.08); transition:transform .28s cubic-bezier(.4,.2,.2,1), filter .28s ease; }
 .client-logo:hover img { transform:scale(1.05); filter:grayscale(0%) contrast(1.05); }
 /* Optional modifier for very light (near white) logos */
 .client-logo.invert img { filter:invert(1) grayscale(10%) contrast(1.05); }
