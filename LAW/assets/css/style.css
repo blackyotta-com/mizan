@@ -70,10 +70,13 @@ small { font-size:.82rem; }
 }
 
 /* Hero */
-.hero { position:relative; padding:120px 0 110px; background:radial-gradient(circle at 65% 40%,rgba(17,216,144,.25),transparent 60%), linear-gradient(140deg,#0d141e,#14202c 55%,#05251c); overflow:hidden; }
-.hero:after { content:""; position:absolute; inset:0; background:url('../mizan-logo.png') center/60% no-repeat; opacity:.5; mix-blend-mode:overlay; pointer-events:none; filter:grayscale(10%) saturate(120%) brightness(1.1); }
-.hero:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(17,216,144,.07),transparent 70%); pointer-events:none; }
-.hero-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:60px; align-items:center; }
+.hero { position:relative; padding:120px 0 110px; background:linear-gradient(135deg,#0c141b,#111d27 55%,#09181a); overflow:hidden; }
+.hero:after { content:""; position:absolute; inset:0; background:url('../../mizan.jpg') center/cover no-repeat; opacity:0.20; pointer-events:none; filter:grayscale(8%) contrast(1.08) brightness(.85); z-index:0; }
+/* Allow hero to span full width without side edges */
+.hero .container { max-width:100%; padding-left:6vw; padding-right:6vw; }
+.hero:before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.60),rgba(0,0,0,.38) 45%,rgba(0,0,0,.65)); pointer-events:none; z-index:0; }
+.hero > * { position:relative; z-index:1; }
+.hero-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:60px; align-items:center; position:relative; z-index:1; }
 .hero-copy h1 { font-size:clamp(2.2rem,4.3vw,3.7rem); font-weight:800; letter-spacing:1px; margin:0 0 20px; background:linear-gradient(92deg,var(--color-text) 30%,var(--color-accent) 120%); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .hero-copy .lead { font-size:1.15rem; }
 .badges { display:flex; gap:14px; flex-wrap:wrap; margin:28px 0 36px; }
