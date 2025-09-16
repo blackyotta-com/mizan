@@ -45,7 +45,11 @@ small { font-size:.82rem; }
 .site-header { position:sticky; top:0; z-index:60; backdrop-filter:blur(18px) saturate(160%); background:rgba(15,20,29,0.82); border-bottom:1px solid rgba(255,255,255,.06); }
 .navbar { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:84px; }
 .brand { display:flex; align-items:center; gap:14px; text-decoration:none; }
-.brand-logo { height:54px; width:54px; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.4)); }
+.brand-logo { height:199px; width:199px; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.4)); transition:transform .25s ease; }
+.brand-logo:hover { transform:scale(1.05); }
+@media (max-width:600px){
+  .brand-logo { height:58px; width:58px; }
+}
 .brand-name { font-size:1.9rem; font-weight:800; letter-spacing:1.5px; color:var(--color-accent); }
 .nav-links { display:flex; align-items:center; gap:10px; list-style:none; margin:0; padding:0; }
 .nav-links li { position:relative; }
