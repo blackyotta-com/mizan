@@ -55,7 +55,8 @@
         ? baseLink.replace(/(service-[^.]+)(\.html)$/,'$1-ar$2')
         : baseLink.replace(/-ar(\.html)$/,'$1');
       const finalLink = localized;
-      window.open(finalLink,'_blank');
+  // Navigate in the same tab (was opening a new tab before)
+  window.location.href = finalLink;
     });
   });
 
