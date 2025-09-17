@@ -6,8 +6,11 @@
   <title>Mizan | Legal Services & Cybercrime Defense</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/mizan.jpg" as="image" importance="high" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="/assets/css/style.css" />
   <meta name="description" content="Mizan Law Firm – General law & cybercrime defense, digital forensics, IP rights. Bilingual legal expertise protecting your rights online & offline." />
 </head>
@@ -16,7 +19,7 @@
   <header class="site-header" role="banner">
     <div class="container navbar">
       <a href="index.html" class="brand" aria-label="Mizan Home">
-        <img src="mizan-logo.png" alt="Mizan Logo" class="brand-logo" />
+  <img src="mizan-logo.png" alt="Mizan Logo" class="brand-logo" width="64" height="64" loading="eager" fetchpriority="high" />
         <span class="brand-name">Mizan</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav"><i class="fas fa-bars"></i></button>
@@ -239,7 +242,7 @@
         <div class="contact-card fade-in">
           <h3 class="lang-en">Office & Direct</h3>
           <h3 class="lang-ar hidden" dir="rtl">المكتب والتواصل</h3>
-          <p class="lang-en"><i class="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br><i class="fas fa-phone"></i> +964 770 000 0000<br><i class="fas fa-envelope"></i> contact@the-mizan.com</p>
+          <p class="lang-en"><i class="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br><i class="fas fa-phone"></i> +964 770 449 0696<br><i class="fas fa-envelope"></i> contact@the-mizan.com</p>
           <p class="lang-ar hidden" dir="rtl"><i class="fas fa-location-dot"></i> لالاف أيربورت ڤيو، أربيل<br><i class="fas fa-phone"></i> ‎+964 770 449 0696‎<br><i class="fas fa-envelope"></i> contact@mizan.krd</p>
           <p class="lang-en" style="font-size:.85rem;opacity:.7;">Urgent cyber incident? Mention "PRIORITY" in the message.</p>
           <p class="lang-ar hidden" dir="rtl" style="font-size:.85rem;opacity:.7;">للحالات العاجلة اذكر كلمة "عاجل" في الرسالة.</p>
@@ -292,6 +295,6 @@
     <p class="copy lang-ar hidden" dir="rtl">© 2025 شركة ميزان للمحاماة. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
