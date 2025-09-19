@@ -6,12 +6,12 @@
   <title>Mizan | Legal Services & Cybercrime Defense</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="/mizan.jpg" as="image" importance="high" />
+  <link rel="preload" href="mizan.jpg" as="image" importance="high" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <meta name="description" content="Mizan Law Firm – General law & cybercrime defense, digital forensics, IP rights. Bilingual legal expertise protecting your rights online & offline." />
 </head>
 <body>
@@ -19,8 +19,7 @@
   <header class="site-header" role="banner">
     <div class="container navbar">
       <a href="index.html" class="brand" aria-label="Mizan Home">
-  <img src="mizan-logo.png" alt="Mizan Logo" class="brand-logo" width="64" height="64" loading="eager" fetchpriority="high" />
-        <span class="brand-name">Mizan</span>
+  <img src="mizan-logo.png" alt="Mizan Logo" class="brand-logo" width="150" height="150" loading="eager" fetchpriority="high" />
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav"><i class="fas fa-bars"></i></button>
       <nav id="primary-nav" aria-label="Primary" class="nav-wrapper">
@@ -77,7 +76,7 @@
   <!-- ABOUT -->
   <section id="about" class="section about-enhanced" aria-labelledby="about-heading">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header hidden">
         <span class="eyebrow lang-en">Who We Are</span>
         <span class="eyebrow lang-ar hidden" dir="rtl">من نحن</span>
         <h2 id="about-heading" class="lang-en">Expert Legal & Cyber Defense Team</h2>
@@ -87,7 +86,17 @@
       </div>
 
       <div class="about-grid">
-        <div class="about-panel fade-in">
+    <!-- Who We Are panel -->
+  <div class="about-panel panel-who fade-in">
+          <h3 class="lang-en" style="margin-top:0;">Who We Are</h3>
+          <h3 class="lang-ar hidden" dir="rtl" style="margin-top:0;">من نحن</h3>
+          <p class="lang-en" style="font-weight:700; margin:.35em 0 .6em;">Expert Legal &amp; Cyber Defense Team</p>
+          <p class="lang-ar hidden" dir="rtl" style="font-weight:700; margin:.35em 0 .6em;">فريق متخصص في الدفاع القانوني والجرائم الإلكترونية</p>
+          <p class="lang-en">Mizan blends traditional legal advocacy with cutting-edge digital investigation—representing individuals, startups, and enterprises in complex cross-border matters.</p>
+          <p class="lang-ar hidden" dir="rtl">تمزج ميزان بين الخبرة القانونية التقليدية والتحقيقات الرقمية الحديثة لخدمة الأفراد والشركات في القضايا المعقدة.</p>
+        </div>
+
+  <div class="about-panel panel-mission fade-in">
           <h3 class="lang-en" style="margin-top:0;">Our Mission</h3>
           <h3 class="lang-ar hidden" dir="rtl" style="margin-top:0;">مهمتنا</h3>
           <p class="lang-en">Protect rights, neutralize cyber threats, and deliver strategic legal clarity. We operate at the intersection of law, technology, and human impact.</p>
@@ -113,7 +122,7 @@
           </div>
         </div>
 
-        <div class="about-panel fade-in">
+  <div class="about-panel panel-choose fade-in">
           <h3 class="lang-en">Why Clients Choose Us</h3>
           <h3 class="lang-ar hidden" dir="rtl">لماذا يختارنا العملاء</h3>
           <p class="lang-en">We align legal strategy with verifiable technical evidence, ensuring credibility with regulators, opposing counsel and courts.</p>
@@ -189,21 +198,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="section testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow lang-en">Client Impact</span>
-        <span class="eyebrow lang-ar hidden" dir="rtl">آراء العملاء</span>
-        <h2 id="testimonials-heading" class="lang-en">Proven Trust & Results</h2>
-        <h2 class="lang-ar hidden" dir="rtl">ثقة ونتائج مثبتة</h2>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial fade-in"><p class="lang-en">Mizan stabilized our company after a severe data breach—rapid, discreet, strategic.</p><p class="lang-ar hidden" dir="rtl">ساعدتنا ميزان بسرعة وفعالية بعد اختراق خطير للبيانات.</p><cite>CEO – Tech Firm</cite></div>
-        <div class="testimonial fade-in"><p class="lang-en">False cyber fraud charges dismissed thanks to their forensic precision.</p><p class="lang-ar hidden" dir="rtl">تم إسقاط اتهامات احتيال إلكتروني زائفة بفضل دقة التحليل الرقمي.</p><cite>IT Manager</cite></div>
-      </div>
-    </div>
-  </section>
+ 
 
   <!-- CLIENTS -->
   <section id="clients" class="section section-tight" aria-labelledby="clients-heading">
@@ -242,8 +237,8 @@
         <div class="contact-card fade-in">
           <h3 class="lang-en">Office & Direct</h3>
           <h3 class="lang-ar hidden" dir="rtl">المكتب والتواصل</h3>
-          <p class="lang-en"><i class="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br><i class="fas fa-phone"></i> +964 770 449 0696<br><i class="fas fa-envelope"></i> contact@the-mizan.com</p>
-          <p class="lang-ar hidden" dir="rtl"><i class="fas fa-location-dot"></i> لالاف أيربورت ڤيو، أربيل<br><i class="fas fa-phone"></i> ‎+964 770 449 0696‎<br><i class="fas fa-envelope"></i> contact@mizan.krd</p>
+          <p class="lang-en"><i class="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br><i class="fas fa-phone"></i> +964 770 449 0696<br><i class="fas fa-envelope"></i> <a class="contact-email" href="mailto:contact@the-mizan.com">contact@the-mizan.com</a></p>
+          <p class="lang-ar hidden" dir="rtl"><i class="fas fa-location-dot"></i> لالاف أيربورت ڤيو، أربيل<br><i class="fas fa-phone"></i> ‎+964 770 449 0696‎<br><i class="fas fa-envelope"></i> <a class="contact-email" href="mailto:contact@mizan.krd">contact@mizan.krd</a></p>
           <p class="lang-en" style="font-size:.85rem;opacity:.7;">Urgent cyber incident? Mention "PRIORITY" in the message.</p>
           <p class="lang-ar hidden" dir="rtl" style="font-size:.85rem;opacity:.7;">للحالات العاجلة اذكر كلمة "عاجل" في الرسالة.</p>
         </div>
@@ -295,6 +290,6 @@
     <p class="copy lang-ar hidden" dir="rtl">© 2025 شركة ميزان للمحاماة. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
