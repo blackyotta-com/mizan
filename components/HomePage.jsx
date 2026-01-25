@@ -430,12 +430,12 @@ export default function HomePage() {
               <h3 className={language === 'ar' ? '' : 'hidden'} dir="rtl">المكتب والتواصل</h3>
               <p className={language === 'en' ? '' : 'hidden'}>
                 <i className="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br/>
-                <i className="fas fa-phone"></i> +964 770 449 0696<br/>
+                <i className="fas fa-phone"></i> +964 750 449 0696<br/>
                 <i className="fas fa-envelope"></i> <a className="contact-email" href="mailto:osamaabwbakr@gmail.com">Contact@The-Mizan.com</a>
               </p>
               <p className={language === 'ar' ? '' : 'hidden'} dir="rtl">
                 <i className="fas fa-location-dot"></i> لالاف أيربورت ڤيو، أربيل<br/>
-                <i className="fas fa-phone"></i> ‎+964 770 449 0696‎<br/>
+                <i className="fas fa-phone"></i> ‎+964 750 449 0696‎<br/>
                 <i className="fas fa-envelope"></i> <a className="contact-email" href="mailto:osamaabwbakr@gmail.com">osamaabwbakr@gmail.com</a>
               </p>
               <p className={language === 'en' ? '' : 'hidden'} style={{fontSize: '.85rem', opacity: '.7'}}>Urgent cyber incident? Mention "PRIORITY" in the message.</p>
@@ -488,8 +488,8 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-        <p className={`copy ${language === 'en' ? '' : 'hidden'}`}>© 2025 Mizan Law Firm. All rights reserved.</p>
-        <p className={`copy ${language === 'ar' ? '' : 'hidden'}`} dir="rtl">© 2025 شركة ميزان للمحاماة. جميع الحقوق محفوظة.</p>
+        <p className={`copy ${language === 'en' ? '' : 'hidden'}`}>© 2026 Mizan Law Firm. All rights reserved.</p>
+        <p className={`copy ${language === 'ar' ? '' : 'hidden'}`} dir="rtl">© 2026 شركة ميزان للمحاماة. جميع الحقوق محفوظة.</p>
       </footer>
     </>
   );
