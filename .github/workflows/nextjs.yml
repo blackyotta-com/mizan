@@ -1,51 +1,57 @@
 name: Deploy Next.js site to Pages
 
-on:
-  push:
-    branches: ["main"]
+on:  
+  push:    
+    branches: ["main"]  
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
+permissions:  
+  contents: read  
+  pages: write  
   id-token: write
 
-concurrency:
-  group: "pages"
+concurrency:  
+  group: "pages"  
   cancel-in-progress: false
 
-jobs:
-  build-and-deploy:
+jobs:  
+  build-and-deploy:    
     runs-on: ubuntu-latest
+    
+    # This environment block fixes the 400 deployment error
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout        
+        uses: actions/checkout@v4        
         
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: 'npm'
+      - name: Setup Node        
+        uses: actions/setup-node@v4        
+        with:          
+          node-version: "20"          
+          cache: 'npm'          
           
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies        
+        run: npm ci        
         
-      - name: Build with Next.js
-        run: npm run build
+      - name: Build with Next.js        
+        run: npm run build        
         
-      - name: Create .nojekyll file
-        run: touch ./out/.nojekyll
+      - name: Create .nojekyll file        
+        run: touch ./out/.nojekyll        
         
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
+      - name: Setup Pages        
+        uses: actions/configure-pages@v5        
+        with:          
+          enablement: true        
           
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Upload artifact        
+        uses: actions/upload-pages-artifact@v3        
+        with:          
+          path: ./out          
+          
+      - name: Deploy to GitHub Pages        
+        id: deployment        
         uses: actions/deploy-pages@v4
