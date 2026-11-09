@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 
 export default function HomePage() {
   const [language, setLanguage] = useState('en');
@@ -166,11 +165,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Head>
-        <title>Mizan | Legal Services & Cybercrime Defense</title>
-        <meta name="description" content="Mizan Law Firm – General law & cybercrime defense, digital forensics, IP rights. Bilingual legal expertise protecting your rights online & offline." />
-        <link rel="icon" type="image/png" href="/images/mizan-logo.png" />
-      </Head>
+
 
       <header className="site-header" role="banner">
         <div className="container navbar">
