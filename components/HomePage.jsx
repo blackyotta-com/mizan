@@ -431,7 +431,7 @@ export default function HomePage() {
               <p className={language === 'en' ? '' : 'hidden'}>
                 <i className="fas fa-location-dot"></i> Lalav Airport View, Erbil, Iraq<br/>
                 <i className="fas fa-phone"></i> +964 750 449 0696<br/>
-                <i className="fas fa-envelope"></i> <a className="contact-email" href="mailto:osamaabwbakr@gmail.com">Contact@The-Mizan.com</a>
+                <i className="fas fa-envelope"></i> <a className="contact-email" href="mailto:osamaabwbakr@gmail.com">Contact@The-Mizan.net</a>
               </p>
               <p className={language === 'ar' ? '' : 'hidden'} dir="rtl">
                 <i className="fas fa-location-dot"></i> لالاف أيربورت ڤيو، أربيل<br/>
