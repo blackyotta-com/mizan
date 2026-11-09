@@ -237,7 +237,7 @@ const CONTENT = {
         },
         {
           q: 'Does Mizan handle cases outside of Erbil?',
-          a: 'Yes. While our headquarters is in Lalav Airport View, Erbil, our legal team regularly litigates before federal courts in Baghdad, the Kurdistan Region, and across Iraq. We also coordinate cross-border forensic investigations involving regional and international jurisdictions.',
+          a: 'Yes. While our headquarters is in Erbil, our legal team regularly litigates before federal courts in Baghdad, the Kurdistan Region, and across Iraq. We also coordinate cross-border forensic investigations involving regional and international jurisdictions.',
         },
         {
           q: 'Can Mizan represent both criminal defense and civil dispute cases?',
@@ -274,7 +274,7 @@ const CONTENT = {
       errorMsg: 'Unable to send message. Please call our direct hotline at +964 750 449 0696.',
       infoTitle: 'Direct Office & Emergency Response',
       locationLabel: 'Headquarters',
-      locationValue: 'Lalav Airport View, Erbil, Kurdistan Region, Iraq',
+      locationValue: 'Erbil, Kurdistan Region, Iraq',
       phoneLabel2: '24/7 Hotline',
       phoneValue: '+964 750 449 0696',
       emailLabel2: 'Official Correspondence',
@@ -523,7 +523,7 @@ const CONTENT = {
         },
         {
           q: 'هل تقدم ميزان خدماتها وتترافع في قضايا خارج مدينة أربيل؟',
-          a: 'نعم، رغم أن مقرنا الرئيسي يقع في مشروع لالاف أيربورت ڤيو بأربيل، إلا أن فريقنا يترافع بانتظام في محاكم بغداد ومختلف محافظات العراق وإقليم كوردستان، بالإضافة للتعاون القضائي في القضايا العابرة للحدود.',
+          a: 'نعم، رغم أن مقرنا الرئيسي يقع في أربيل، إلا أن فريقنا يترافع بانتظام في محاكم بغداد ومختلف محافظات العراق وإقليم كوردستان، بالإضافة للتعاون القضائي في القضايا العابرة للحدود.',
         },
         {
           q: 'هل تتعامل ميزان مع القضايا المدنية والتجارية أم الجنائية فقط؟',
@@ -560,7 +560,7 @@ const CONTENT = {
       errorMsg: 'تعذر إرسال النموذج. يرجى الاتصال المباشر على الخط الساخن: ‎+964 750 449 0696',
       infoTitle: 'المكتب الرئيسي والطوارئ',
       locationLabel: 'الموقع الرئيسي',
-      locationValue: 'مشروع لالاف أيربورت ڤيو، أربيل، إقليم كوردستان، العراق',
+      locationValue: 'أربيل، إقليم كوردستان، العراق',
       phoneLabel2: 'الخط المباشر 24/7',
       phoneValue: '‎+964 750 449 0696',
       emailLabel2: 'المراسلات الرسمية',
