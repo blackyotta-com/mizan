@@ -1,129 +1,226 @@
 'use client';
+
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 
 export default function GeneralLaw() {
   const [language, setLanguage] = useState('en');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('mizan-lang') || 'en';
-    setLanguage(savedLang);
+    setMounted(true);
+    const saved = localStorage.getItem('mizan-lang') || 'en';
+    setLanguage(saved);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    document.title =
+      language === 'en'
+        ? 'General Law & Litigation | Mizan Law Firm'
+        : 'القانون العام والتقاضي والشركات | شركة ميزان للمحاماة';
+    document.documentElement.lang = language;
+    document.body.dir = language === 'ar' ? 'rtl' : 'ltr';
+    localStorage.setItem('mizan-lang', language);
+  }, [language, mounted]);
+
+  const toggleLanguage = (lang) => {
+    setLanguage(lang);
+  };
+
+  const isAr = language === 'ar';
 
   return (
     <>
-      <Head>
-        <title>{language === 'en' ? 'General Law Cases | Mizan Law Firm' : 'قضايا القانون العام | شركة ميزان للمحاماة'}</title>
-        <meta name="description" content={language === 'en' ? "Criminal, family, civil, real estate, employment and personal injury matters with strategic courtroom representation." : "القانون الجنائي، الأسرة، العقارات، الإصابات الشخصية، العمل، والتقاضي المدني بخبرة استراتيجية."} />
-      </Head>
-
-      <header className="site-header">
+      <header className="site-header" role="banner">
         <div className="container navbar">
           <Link href="/" className="brand">
-            <img src="/images/mizan-logo.png" alt={language === 'en' ? "Mizan Logo" : "شعار ميزان"} className="brand-logo" />
-           
+            <img
+              src="/images/mizan-logo.png"
+              alt="Mizan Logo"
+              className="brand-logo-img"
+              width="48"
+              height="40"
+            />
+            <div className="brand-text">
+              <span className="brand-title">
+                MIZAN <span className="brand-badge">LAW</span>
+              </span>
+              <span className="brand-sub">
+                {isAr ? 'القانون العام والمرافعة' : 'Litigation & Corporate Law'}
+              </span>
+            </div>
           </Link>
-          <Link href="/#services" className="btn btn-outline" style={{fontSize: '.85rem'}}>
-            {language === 'en' ? '← Back' : 'عودة ←'}
-          </Link>
+
+          <div className="header-actions">
+            <div className="lang-toggle" role="group" aria-label="Language selection">
+              <button
+                type="button"
+                className={`lang-btn ${!isAr ? 'active' : ''}`}
+                onClick={() => toggleLanguage('en')}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                className={`lang-btn ${isAr ? 'active' : ''}`}
+                onClick={() => toggleLanguage('ar')}
+              >
+                عربي
+              </button>
+            </div>
+            <Link href="/#services" className="btn btn-outline btn-sm">
+              <i className={`fas ${isAr ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
+              <span>{isAr ? 'العودة للرئيسية' : 'Back to Services'}</span>
+            </Link>
+          </div>
         </div>
       </header>
 
-      <main id="main">
-        <section className="service-hero">
-          <div className="container service-content">
-            <nav className="breadcrumbs" aria-label="Breadcrumb">
-              <Link href="/">{language === 'en' ? 'Home' : 'الرئيسية'}</Link> · <Link href="/#services">{language === 'en' ? 'Services' : 'الخدمات'}</Link> · {language === 'en' ? 'General Law' : 'القانون العام'}
-            </nav>
-            <h1>{language === 'en' ? 'General Law Cases' : 'قضايا القانون العام'}</h1>
-            <ul className="pill-list">
-              {language === 'en' ? (
-                <>
-                  <li>Criminal</li><li>Family</li><li>Real Estate</li><li>Employment</li><li>Civil</li><li>Injury</li>
-                </>
-              ) : (
-                <>
-                  <li>جنائي</li><li>أسرة</li><li>عقارات</li><li>عمل</li><li>مدني</li><li>إصابات</li>
-                </>
-              )}
-            </ul>
-            <article>
-              <p>{language === 'en' 
-                ? "Our general law practice spans criminal defense, family matters, civil litigation, employment disputes, real estate transactions and personal injury claims—delivering strategic representation focused on outcomes."
-                : "يغطي قسم القانون العام لدينا الدفاع الجنائي، قضايا الأسرة، التقاضي المدني، منازعات العمل، المعاملات العقارية ودعاوى الإصابات الشخصية—مع تمثيل استراتيجي يركز على النتائج."}
-              </p>
-              <p><strong>{language === 'en' ? "We cover:" : "نغطي:"}</strong><br />
-                {language === 'en' 
-                  ? " - Criminal Defense & investigations\n - Family Law (divorce, custody, inheritance)\n - Real Estate contracts & property disputes\n - Personal Injury & negligence claims\n - Employment & labor disputes\n - Civil litigation & dispute resolution"
-                  : " - الدفاع الجنائي والتحقيقات\n - قانون الأسرة (الطلاق، الحضانة، الميراث)\n - عقود ومنازعات العقارات\n - إصابات شخصية ودعاوى الإهمال\n - منازعات العمل والعمال\n - التقاضي المدني وحل النزاعات"}
-              </p>
-              <p>{language === 'en' 
-                ? "Each case is handled with evidence-grounded analysis, clear communication and courtroom readiness."
-                : "كل ملف يُدار بتحليل قائم على الأدلة وتواصل واضح واستعداد قضائي كامل."}
-              </p>
-              <p><Link className="btn" href="/#contact">{language === 'en' ? "Request Counsel" : "اطلب استشارة"}</Link></p>
-            </article>
+      <main id="main" className="service-subpage">
+        <div className="container">
+          <nav className="service-breadcrumbs" aria-label="Breadcrumb">
+            <Link href="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+            <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
+            <Link href="/#services">{isAr ? 'مجالات الممارسة' : 'Practice Areas'}</Link>
+            <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
+            <span style={{ color: '#00f29d' }}>
+              {isAr ? 'القانون العام والتقاضي' : 'General Litigation'}
+            </span>
+          </nav>
+
+          <div className="subpage-hero">
+            <span className="section-tag">
+              <i className="fas fa-scale-balanced"></i> {isAr ? 'خبرة قضائية راسخة' : 'Commanding Courtroom Advocacy'}
+            </span>
+            <h1 className="subpage-hero-title">
+              {isAr ? 'القانون العام والتقاضي ومنازعات الشركات' : 'General Litigation, Corporate Disputes & Criminal Defense'}
+            </h1>
+            <p className="subpage-hero-desc">
+              {isAr
+                ? 'تمثيل قضائي رفيع المستوى أمام محاكم الجنايات والجنح والمحاكم المدنية والتجارية ولجان التحكيم في إقليم كوردستان وعموم العراق.'
+                : 'Formidable trial advocacy across commercial contract disputes, criminal investigations, real estate transactions, corporate governance conflicts, and family asset governance.'}
+            </p>
+            <div className="subpage-pills">
+              {(isAr
+                ? ['الدفاع الجنائي', 'التحكيم التجاري', 'النزاعات العقارية', 'قضايا العمل', 'منازعات الشركاء', 'التركات والأسرة']
+                : ['Criminal Defense', 'Commercial Arbitration', 'Real Estate Conflicts', 'Employment Law', 'Shareholder Disputes', 'Family Estates']
+              ).map((pill, i) => (
+                <span key={i} className="subpage-pill">
+                  <i className="fas fa-check" style={{ marginRight: '6px' }}></i> {pill}
+                </span>
+              ))}
+            </div>
           </div>
-        </section>
+
+          <div className="service-content-grid">
+            <div className="service-main-text">
+              <h2>{isAr ? 'استراتيجية تقاضٍ تركز على النتيجة' : 'Outcome-Driven Courtroom Strategy'}</h2>
+              <p>
+                {isAr
+                  ? 'يضم قسم القانون العام في شركة ميزان محامين متمرسين يمتلكون فهماً عميقاً للقوانين العراقية وقوانين إقليم كوردستان، مع قدرة فائقة على صياغة اللوائح القانونية المحكمة وإدارة استجواب الشهود والترافع الشفهي المؤثر أمام القضاء.'
+                  : 'Mizan’s general litigation practice brings seasoned trial advocates who possess profound mastery of Iraqi federal jurisprudence and Kurdistan Regional statutory frameworks. We combine meticulous case preparation with persuasive oral argument.'}
+              </p>
+
+              <h2>{isAr ? 'تخصصات ومجالات التمثيل' : 'Core Litigation Disciplines'}</h2>
+              <ul className="service-list-block">
+                <li>
+                  <i className="fas fa-gavel"></i>
+                  <div>
+                    <strong>{isAr ? 'الدفاع الجنائي والتحقيقات القضائية:' : 'Criminal Defense & Special Inquiries:'}</strong>{' '}
+                    {isAr
+                      ? 'التمثيل أمام قضاة التحقيق ومحاكم الجنايات في قضايا الأموال العامة، الجرائم المالية، خيانة الأمانة، والاتهامات الجنائية المعقدة.'
+                      : 'Representation during preliminary investigative hearings and before criminal felony courts for financial offenses, breach of trust, and complex defense matters.'}
+                  </div>
+                </li>
+                <li>
+                  <i className="fas fa-building-columns"></i>
+                  <div>
+                    <strong>{isAr ? 'النزاعات التجارية والتحكيم:' : 'Commercial Disputes & Contract Arbitration:'}</strong>{' '}
+                    {isAr
+                      ? 'فض منازعات الإخلال بالعقود، خلافات التوريد والشراكة، مطالبات التعويض المالي، والتحكيم التجاري المحلي والدولي.'
+                      : 'Enforcing contract breach remedies, supply-chain litigation, partnership dissolutions, cross-border commercial arbitration, and monetary debt recovery.'}
+                  </div>
+                </li>
+                <li>
+                  <i className="fas fa-house-chimney"></i>
+                  <div>
+                    <strong>{isAr ? 'القضايا العقارية وتوثيق الملكيات:' : 'Real Estate Litigation & Title Disputes:'}</strong>{' '}
+                    {isAr
+                      ? 'حماية حقوق الملكية العقارية، إخلاء العقارات، فسخ عقود البيع والإيجار، وحل تداخلات التسجيل العقاري والتطوير.'
+                      : 'Resolving land registry conflicts, commercial lease enforcement, real estate developer claims, and property title defense.'}
+                  </div>
+                </li>
+                <li>
+                  <i className="fas fa-users"></i>
+                  <div>
+                    <strong>{isAr ? 'قضايا الأحوال الشخصية والتركات:' : 'Family Law & Private Wealth Succession:'}</strong>{' '}
+                    {isAr
+                      ? 'إدارة وتقسيم التركات المعقدة للشركات العائلية، حصر الإرث، وقضايا الحضانة والنفقة بأسلوب يحفظ الخصوصية والكرامة.'
+                      : 'Discreet resolution of high-net-worth estate distributions, corporate inheritance restructuring, and delicate family law advocacy.'}
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <aside className="service-sidebar">
+              <div className="sidebar-cta-card">
+                <span className="section-tag" style={{ marginBottom: '14px' }}>
+                  {isAr ? 'استشارة قانونية' : 'Case Consultation'}
+                </span>
+                <h3>{isAr ? 'هل تواجه دعوى قضائية أو نزاعاً تجارياً؟' : 'Facing Litigation or Commercial Conflict?'}</h3>
+                <p>
+                  {isAr
+                    ? 'احصل على تقييم قانوني دقيق لموقفك القضائي وتحديد أفضل استراتيجيات كسب الدعوى.'
+                    : 'Gain strategic clarity and establish aggressive courtroom representation immediately.'}
+                </p>
+                <Link href="/#contact" className="btn btn-primary" style={{ width: '100%', marginBottom: '10px' }}>
+                  <i className="fas fa-calendar-check"></i> {isAr ? 'طلب استشارة قضائية' : 'Schedule Consultation'}
+                </Link>
+                <a href="tel:+9647504490696" className="btn btn-outline" style={{ width: '100%' }}>
+                  <i className="fas fa-phone"></i> +964 750 449 0696
+                </a>
+              </div>
+
+              <div className="contact-card-glass" style={{ padding: '24px' }}>
+                <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '16px' }}>
+                  {isAr ? 'مجالات ممارسة أخرى' : 'Other Practice Areas'}
+                </h4>
+                <ul className="footer-links" style={{ gap: '12px' }}>
+                  <li>
+                    <Link href="/services/cybercrime-defense">
+                      <i className="fas fa-shield-halved" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      {isAr ? 'الدفاع عن الجرائم الإلكترونية' : 'Cybercrime Defense'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/digital-forensics">
+                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      {isAr ? 'الأدلة الجنائية الرقمية' : 'Digital Forensics'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/ip-rights">
+                      <i className="fas fa-copyright" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      {isAr ? 'الملكية الفكرية والعلامات' : 'IP & Online Rights'}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
       </main>
 
       <footer className="site-footer">
-        <p className="copy" style={{margin: 0}}>© 2025 {language === 'en' ? 'Mizan Law Firm.' : 'شركة ميزان للمحاماة.'}</p>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '0.88rem', color: '#94a3b8' }}>
+            {isAr
+              ? '© 2026 شركة ميزان للمحاماة والاستشارات القانونية والأدلة الرقمية. جميع الحقوق محفوظة.'
+              : '© 2026 Mizan Law Firm. Legal Services & Cyber Defense. All rights reserved.'}
+          </p>
+        </div>
       </footer>
-
-      <style jsx>{`
-        .service-hero {
-          padding: 110px 0 60px;
-          background: linear-gradient(140deg, #0d141e, #14202c 55%, #05251c);
-        }
-        .breadcrumbs {
-          font-size: .75rem;
-          letter-spacing: .5px;
-          text-transform: uppercase;
-          color: var(--color-text-alt);
-          margin-bottom: 24px;
-        }
-        .breadcrumbs a {
-          color: var(--color-accent);
-          text-decoration: none;
-        }
-        .service-content {
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 0 0 60px;
-        }
-        .service-content h1 {
-          font-size: clamp(2rem, 3.6vw, 3rem);
-          background: linear-gradient(95deg, var(--color-text), var(--color-accent));
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          margin: 0 0 26px;
-        }
-        .pill-list {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-bottom: 34px;
-        }
-        .pill-list li {
-          background: var(--color-surface);
-          padding: 10px 16px;
-          border-radius: 40px;
-          font-size: .78rem;
-          letter-spacing: .5px;
-          font-weight: 600;
-          color: var(--color-accent);
-          box-shadow: 0 0 0 1px rgba(17,216,144,.25);
-        }
-        article p {
-          font-size: 1.02rem;
-        }
-      `}</style>
     </>
   );
 }

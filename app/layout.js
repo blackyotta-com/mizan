@@ -1,18 +1,57 @@
 import './globals.css';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#070a10',
+};
+
 export const metadata = {
-  title: 'Mizan Law Firm',
-  description: 'Legal Services & Cybercrime Defense',
+  metadataBase: new URL('https://the-mizan.net'),
+  title: 'Mizan Law Firm | Premier Cybercrime Defense, Digital Forensics & Litigation',
+  description: 'Mizan Law Firm combines courtroom litigation strategy with elite digital forensics. Defending individuals, executives, and enterprises in cybercrime, digital evidence, IP rights, and general law in Erbil, Baghdad, and cross-border.',
+  keywords: 'Mizan Law Firm, cybercrime defense, digital forensics, legal consultancy Erbil, Iraq law firm, online rights, litigation, IP law, شركة ميزان للمحاماة',
+  authors: [{ name: 'Mizan Law Firm' }],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/images/mizan-logo.png',
+  },
+  openGraph: {
+    title: 'Mizan Law Firm | Legal Defense & Digital Forensics',
+    description: 'Defending your rights. Shielding your digital frontier. Elite legal defense & forensic investigations.',
+    url: 'https://the-mizan.net',
+    siteName: 'Mizan Law Firm',
+    images: [
+      {
+        url: '/images/mizan-logo.png',
+        width: 747,
+        height: 611,
+        alt: 'Mizan Law Firm Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </head>
       <body>{children}</body>
     </html>
