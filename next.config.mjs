@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: 'export', // <-- MANDATORY FOR GITHUB PAGES
   images: {
-    unoptimized: true
+    unoptimized: true, // <-- Recommended so your images don't break
   },
-  // Remove basePath and assetPrefix since you're using custom domain
 };
 
 export default nextConfig;
