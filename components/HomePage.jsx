@@ -1125,8 +1125,8 @@ export default function HomePage() {
                 <img src="/images/getfit.jpeg" alt="GetFit" loading="lazy" />
               </div>
               <div className="client-card">
-                <span style={{ fontSize: '0.95rem', fontWeight: '700', color: '#94a3b8' }}>
-                  + 40 Enterprise Clients
+                <span style={{ fontSize: '1.8rem', fontWeight: '700', color: 'var(--accent-emerald)', opacity: 0.85 }}>
+                  +
                 </span>
               </div>
             </div>
