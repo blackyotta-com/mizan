@@ -14,8 +14,14 @@ export const metadata = {
   keywords: 'Mizan Law Firm, cybercrime defense, digital forensics, legal consultancy Erbil, Iraq law firm, online rights, litigation, IP law, شركة ميزان للمحاماة',
   authors: [{ name: 'Mizan Law Firm' }],
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/mizan-logo.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'Mizan Law Firm | Legal Defense & Digital Forensics',
