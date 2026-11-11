@@ -70,7 +70,7 @@ export default function CybercrimeDefense() {
                 عربي
               </button>
             </div>
-            <Link href="/#services" className="btn btn-outline btn-sm">
+            <Link href="/#services" className="btn btn-ghost btn-sm">
               <i className={`fas ${isAr ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
               <span>{isAr ? 'العودة للرئيسية' : 'Back to Services'}</span>
             </Link>
@@ -87,7 +87,7 @@ export default function CybercrimeDefense() {
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
             <Link href="/#services">{isAr ? 'مجالات الممارسة' : 'Practice Areas'}</Link>
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
-            <span style={{ color: '#00f29d' }}>
+            <span style={{ color: '#c8a24d' }}>
               {isAr ? 'الدفاع عن الجرائم الإلكترونية' : 'Cybercrime Defense'}
             </span>
           </nav>
@@ -210,26 +210,26 @@ export default function CybercrimeDefense() {
               </div>
 
               {/* Other Services Navigation */}
-              <div className="contact-card-glass" style={{ padding: '24px' }}>
+              <div className="sidebar-links-card">
                 <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '16px' }}>
                   {isAr ? 'مجالات ممارسة أخرى' : 'Other Practice Areas'}
                 </h4>
-                <ul className="footer-links" style={{ gap: '12px' }}>
+                <ul className="sidebar-links-list">
                   <li>
                     <Link href="/services/digital-forensics">
-                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'الأدلة الجنائية الرقمية' : 'Digital Forensics'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/general-law">
-                      <i className="fas fa-scale-balanced" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-scale-balanced" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'القانون العام والتقاضي' : 'General Litigation'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/ip-rights">
-                      <i className="fas fa-copyright" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-copyright" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'الملكية الفكرية والعلامات' : 'IP & Online Rights'}
                     </Link>
                   </li>

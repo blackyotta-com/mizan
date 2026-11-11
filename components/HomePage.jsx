@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 // Comprehensive Bilingual Content Dictionary
@@ -20,7 +20,7 @@ const CONTENT = {
       urgentCall: '24/7 Incident Hotline',
     },
     hero: {
-      tag: 'Premier Legal Counsel & Digital Forensics • Erbil & Cross-Border',
+      tag: 'Premier Legal Counsel & Digital Forensics',
       titleStart: 'Defending Your Rights.',
       titleGradient: 'Shielding Your Digital Frontier.',
       lead: 'Mizan unites aggressive courtroom litigation with accredited digital forensic engineering. We represent individuals, executives, and enterprises against high-stakes lawsuits, cyber extortion, data breaches, and IP infringement.',
@@ -605,6 +605,69 @@ export default function HomePage() {
     localStorage.setItem('mizan-lang', language);
   }, [language, mounted]);
 
+  // Sticky header: raise on scroll
+  useEffect(() => {
+    if (!mounted) return;
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [mounted]);
+
+  // Scroll-reveal animations (SSR-safe, gated by .js-anim)
+  // Elements are "revealed" exactly once and never re-hidden, so
+  // interactive content (FAQ answers, tabs, etc.) can't flicker.
+  const revealRef = useRef(null);
+  useEffect(() => {
+    if (!mounted) return;
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.body.classList.add('js-anim');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add('in');
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    const targets = document.querySelectorAll('[data-reveal]');
+    targets.forEach((el) => io.observe(el));
+    revealRef.current = io;
+
+    // Keep newly mounted elements (e.g. FAQ answers) revealed automatically.
+    const mo = new MutationObserver((muts) => {
+      muts.forEach((m) => {
+        m.addedNodes.forEach((node) => {
+          if (node.nodeType !== 1) return;
+          const fresh =
+            node.matches?.('[data-reveal]')
+              ? [node]
+              : Array.from(node.querySelectorAll?.('[data-reveal]') || []);
+          fresh.forEach((el) => {
+            if (revealRef.current) revealRef.current.unobserve(el);
+            el.classList.add('in');
+          });
+        });
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+      revealRef.current = null;
+      document.body.classList.remove('js-anim');
+    };
+  }, [mounted]);
+
   const t = CONTENT[language] || CONTENT.en;
 
   const toggleLanguage = (lang) => {
@@ -686,7 +749,7 @@ export default function HomePage() {
             />
             <div className="brand-text">
               <span className="brand-title">
-                MIZAN <span className="brand-badge">LAW</span>
+                MIZAN 
               </span>
               <span className="brand-sub">{t.brandTagline}</span>
             </div>
@@ -779,7 +842,7 @@ export default function HomePage() {
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
             <span className="brand-title">
-              MIZAN <span className="brand-badge">LAW</span>
+              MIZAN 
             </span>
             <button type="button" className="mobile-close-btn" onClick={() => setIsNavOpen(false)} aria-label="Close menu">
               <i className="fas fa-xmark"></i>
@@ -855,9 +918,6 @@ export default function HomePage() {
           <div className="container hero-grid">
             {/* Left: Content */}
             <div className="hero-content">
-              <span className="hero-badge-tag">
-                <i className="fas fa-shield-halved"></i> {t.hero.tag}
-              </span>
               <h1 id="hero-title" className="hero-title">
                 {t.hero.titleStart} <span className="gradient-text">{t.hero.titleGradient}</span>
               </h1>
@@ -874,7 +934,7 @@ export default function HomePage() {
 
               {/* Action Buttons */}
               <div className="hero-cta">
-                <a href="#contact" className="btn btn-primary" onClick={(e) => handleSmoothScroll(e, '#contact')}>
+                <a href="#contact" className="btn btn-gold" onClick={(e) => handleSmoothScroll(e, '#contact')}>
                   <i className="fas fa-calendar-check"></i> {t.hero.ctaPrimary}
                 </a>
                 <a href="tel:+9647504490696" className="btn btn-emergency">
@@ -883,41 +943,45 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Interactive Terminal Dashboard */}
+            {/* Right: Live Case Briefing Card */}
             <div className="hero-visual">
-              <div className="terminal-card">
-                <div className="terminal-header">
-                  <div className="terminal-dots">
+              <div className="hero-seal">
+                <i className="fas fa-shield-halved"></i>
+                <span>MIZAN</span>
+              </div>
+              <div className="briefing-card">
+                <div className="briefing-header">
+                  <div className="briefing-dots">
                     <span className="dot red"></span>
                     <span className="dot yellow"></span>
                     <span className="dot green"></span>
                   </div>
-                  <div className="terminal-badge">
+                  <div className="briefing-badge">
                     <span className="live-indicator"></span>
                     {t.hero.terminal.status}
                   </div>
                 </div>
 
-                <div className="terminal-grid">
-                  <div className="terminal-stat">
+                <div className="briefing-grid">
+                  <div className="briefing-stat">
                     <div className="stat-value">
                       {t.hero.terminal.stat1Value}
                     </div>
                     <div className="stat-label">{t.hero.terminal.stat1Label}</div>
                   </div>
-                  <div className="terminal-stat">
+                  <div className="briefing-stat">
                     <div className="stat-value">
                       {t.hero.terminal.stat2Value}
                     </div>
                     <div className="stat-label">{t.hero.terminal.stat2Label}</div>
                   </div>
-                  <div className="terminal-stat">
+                  <div className="briefing-stat">
                     <div className="stat-value">
                       {t.hero.terminal.stat3Value}
                     </div>
                     <div className="stat-label">{t.hero.terminal.stat3Label}</div>
                   </div>
-                  <div className="terminal-stat">
+                  <div className="briefing-stat">
                     <div className="stat-value">
                       {t.hero.terminal.stat4Value}
                     </div>
@@ -925,7 +989,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="terminal-feed">
+                <div className="briefing-feed">
                   <div className="feed-line">
                     <i className="fas fa-terminal"></i>
                     <span>{t.hero.terminal.feed1}</span>
@@ -947,9 +1011,9 @@ export default function HomePage() {
         {/* ==========================================================================
             WHY MIZAN (THE HYBRID ADVANTAGE)
             ========================================================================== */}
-        <section id="why-mizan" className="section" aria-labelledby="why-title">
+        <section id="why-mizan" className="section section--alt" aria-labelledby="why-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.whyMizan.tag}</span>
               <h2 id="why-title" className="section-title">
                 {t.whyMizan.title}
@@ -960,7 +1024,7 @@ export default function HomePage() {
             {/* 4 Pillars Grid */}
             <div className="hybrid-grid">
               {t.whyMizan.cards.map((c, i) => (
-                <div key={i} className="hybrid-card">
+                <div key={i} className="hybrid-card" data-reveal style={{ '--d': i }}>
                   <div className="hybrid-icon-wrap">
                     <i className={`fas ${c.icon}`}></i>
                   </div>
@@ -1009,7 +1073,7 @@ export default function HomePage() {
                   <ul>
                     {t.whyMizan.compMizanList.map((item, idx) => (
                       <li key={idx}>
-                        <i className="fas fa-check" style={{ color: '#00f29d' }}></i>
+                        <i className="fas fa-check" style={{ color: '#c8a24d' }}></i>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -1025,7 +1089,7 @@ export default function HomePage() {
             ========================================================================== */}
         <section id="services" className="section" aria-labelledby="services-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.services.tag}</span>
               <h2 id="services-title" className="section-title">
                 {t.services.title}
@@ -1035,7 +1099,7 @@ export default function HomePage() {
 
             <div className="services-grid">
               {t.services.items.map((svc) => (
-                <div key={svc.slug} className="service-card">
+                <div key={svc.slug} className="service-card" data-reveal>
                   <div>
                     <div className="service-card-top">
                       <div className="service-icon-box">
@@ -1064,7 +1128,7 @@ export default function HomePage() {
                     </Link>
                     <a
                       href="#contact"
-                      className="btn btn-outline btn-sm"
+                      className="btn btn-ink btn-sm"
                       onClick={(e) => handleSmoothScroll(e, '#contact')}
                     >
                       <i className="fas fa-envelope"></i>
@@ -1079,9 +1143,9 @@ export default function HomePage() {
         {/* ==========================================================================
             4-PHASE DEFENSE METHODOLOGY
             ========================================================================== */}
-        <section id="methodology" className="section" aria-labelledby="method-title">
+        <section id="methodology" className="section section--dark" aria-labelledby="method-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.methodology.tag}</span>
               <h2 id="method-title" className="section-title">
                 {t.methodology.title}
@@ -1089,9 +1153,10 @@ export default function HomePage() {
               <p className="section-subtitle">{t.methodology.subtitle}</p>
             </div>
 
-            <div className="workflow-steps">
+            <div className="workflow-track">
               {t.methodology.steps.map((st, i) => (
-                <div key={i} className="workflow-step">
+                <div key={i} className="workflow-step" data-reveal style={{ '--d': i }}>
+                  <div className="step-medallion">{i + 1}</div>
                   <span className="step-number">{st.num}</span>
                   <h3>{st.title}</h3>
                   <p>{st.desc}</p>
@@ -1106,7 +1171,7 @@ export default function HomePage() {
             ========================================================================== */}
         <section className="section" style={{ padding: '40px 0' }}>
           <div className="container">
-            <div className="section-header" style={{ marginBottom: '30px' }}>
+            <div className="section-header" style={{ marginBottom: '30px' }} data-reveal>
               <span className="section-tag">{t.clients.tag}</span>
               <h2 className="section-title" style={{ fontSize: '2rem' }}>
                 {t.clients.title}
@@ -1136,9 +1201,9 @@ export default function HomePage() {
         {/* ==========================================================================
             CASE STUDIES / TRACK RECORD
             ========================================================================== */}
-        <section id="cases" className="section" aria-labelledby="cases-title">
+        <section id="cases" className="section section--alt" aria-labelledby="cases-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.cases.tag}</span>
               <h2 id="cases-title" className="section-title">
                 {t.cases.title}
@@ -1148,7 +1213,7 @@ export default function HomePage() {
 
             <div className="cases-grid">
               {t.cases.items.map((item, i) => (
-                <div key={i} className="case-card">
+                <div key={i} className="case-card" data-reveal style={{ '--d': i }}>
                   <div className="case-tag">{item.tag}</div>
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
@@ -1167,7 +1232,7 @@ export default function HomePage() {
             ========================================================================== */}
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.faq.tag}</span>
               <h2 id="faq-title" className="section-title">
                 {t.faq.title}
@@ -1202,9 +1267,9 @@ export default function HomePage() {
         {/* ==========================================================================
             CONFIDENTIAL INTAKE & CONTACT HUB
             ========================================================================== */}
-        <section id="contact" className="section" aria-labelledby="contact-title">
+        <section id="contact" className="section section--dark" aria-labelledby="contact-title">
           <div className="container">
-            <div className="section-header">
+            <div className="section-header" data-reveal>
               <span className="section-tag">{t.contact.tag}</span>
               <h2 id="contact-title" className="section-title">
                 {t.contact.title}
@@ -1308,7 +1373,7 @@ export default function HomePage() {
 
                   <button
                     type="submit"
-                    className={`btn ${isPriority ? 'btn-emergency' : 'btn-primary'}`}
+                    className={`btn ${isPriority ? 'btn-emergency' : 'btn-gold'}`}
                     disabled={formStatus === 'loading'}
                   >
                     {formStatus === 'loading' ? (
@@ -1409,7 +1474,7 @@ export default function HomePage() {
             {/* Brand column */}
             <div className="footer-brand">
               <span className="brand-title">
-                MIZAN <span className="brand-badge">LAW</span>
+                MIZAN 
               </span>
               <p>{t.footer.desc}</p>
               <div style={{ marginTop: '18px', display: 'flex', gap: '12px' }}>
@@ -1511,15 +1576,15 @@ export default function HomePage() {
               <h4>{t.footer.contactTitle}</h4>
               <ul className="footer-links" style={{ gap: '14px' }}>
                 <li style={{ color: '#94a3b8' }}>
-                  <i className="fas fa-location-dot" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                  <i className="fas fa-location-dot" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                   {t.contact.locationValue}
                 </li>
                 <li>
-                  <i className="fas fa-phone" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                  <i className="fas fa-phone" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                   <a href="tel:+9647504490696">+964 750 449 0696</a>
                 </li>
                 <li>
-                  <i className="fas fa-envelope" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                  <i className="fas fa-envelope" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                   <a href="mailto:Contact@The-Mizan.net">Contact@The-Mizan.net</a>
                 </li>
               </ul>

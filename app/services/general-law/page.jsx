@@ -69,7 +69,7 @@ export default function GeneralLaw() {
                 عربي
               </button>
             </div>
-            <Link href="/#services" className="btn btn-outline btn-sm">
+            <Link href="/#services" className="btn btn-ghost btn-sm">
               <i className={`fas ${isAr ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
               <span>{isAr ? 'العودة للرئيسية' : 'Back to Services'}</span>
             </Link>
@@ -84,7 +84,7 @@ export default function GeneralLaw() {
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
             <Link href="/#services">{isAr ? 'مجالات الممارسة' : 'Practice Areas'}</Link>
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
-            <span style={{ color: '#00f29d' }}>
+            <span style={{ color: '#c8a24d' }}>
               {isAr ? 'القانون العام والتقاضي' : 'General Litigation'}
             </span>
           </nav>
@@ -174,34 +174,34 @@ export default function GeneralLaw() {
                     ? 'احصل على تقييم قانوني دقيق لموقفك القضائي وتحديد أفضل استراتيجيات كسب الدعوى.'
                     : 'Gain strategic clarity and establish aggressive courtroom representation immediately.'}
                 </p>
-                <Link href="/#contact" className="btn btn-primary" style={{ width: '100%', marginBottom: '10px' }}>
+                <Link href="/#contact" className="btn btn-gold" style={{ width: '100%', marginBottom: '10px' }}>
                   <i className="fas fa-calendar-check"></i> {isAr ? 'طلب استشارة قضائية' : 'Schedule Consultation'}
                 </Link>
-                <a href="tel:+9647504490696" className="btn btn-outline" style={{ width: '100%' }}>
+                <a href="tel:+9647504490696" className="btn btn-ink" style={{ width: '100%' }}>
                   <i className="fas fa-phone"></i> +964 750 449 0696
                 </a>
               </div>
 
-              <div className="contact-card-glass" style={{ padding: '24px' }}>
+              <div className="sidebar-links-card">
                 <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '16px' }}>
                   {isAr ? 'مجالات ممارسة أخرى' : 'Other Practice Areas'}
                 </h4>
-                <ul className="footer-links" style={{ gap: '12px' }}>
+                <ul className="sidebar-links-list">
                   <li>
                     <Link href="/services/cybercrime-defense">
-                      <i className="fas fa-shield-halved" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-shield-halved" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'الدفاع عن الجرائم الإلكترونية' : 'Cybercrime Defense'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/digital-forensics">
-                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'الأدلة الجنائية الرقمية' : 'Digital Forensics'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/ip-rights">
-                      <i className="fas fa-copyright" style={{ color: '#00f29d', marginRight: '8px' }}></i>
+                      <i className="fas fa-copyright" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
                       {isAr ? 'الملكية الفكرية والعلامات' : 'IP & Online Rights'}
                     </Link>
                   </li>
