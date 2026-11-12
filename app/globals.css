@@ -1115,11 +1115,113 @@ body[dir='rtl'] .hero-title .gradient-text {
   gap: 14px;
 }
 
-/* ————— Right: Case Briefing Panel ————— */
+/* ————— Right: Centerpiece Image ————— */
 .hero-visual {
   position: relative;
   z-index: 2;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 5;
+  border-radius: 50% / 46%;
+  overflow: hidden;
+  border: 1px solid var(--gold-line);
+  box-shadow:
+    0 0 0 1px rgba(184, 148, 69, 0.18),
+    0 0 0 10px rgba(74, 0, 8, 0.85),
+    0 0 0 11px var(--gold-line),
+    0 60px 120px -40px rgba(52, 0, 5, 0.85),
+    var(--sh-gold);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(184, 148, 69, 0.18), transparent 65%),
+    var(--ink-950);
+}
+
+.hero-image-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184, 148, 69, 0.22), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(90, 7, 16, 0.6), transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(184, 148, 69, 0.35);
+  border-radius: 50% / 46%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-image-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.hero-image-seal {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(216, 188, 116, 0.3), transparent 60%),
+    var(--ink-900);
+  border: 1px solid var(--gold-line);
+  box-shadow:
+    0 0 0 5px rgba(184, 148, 69, 0.12),
+    0 20px 44px -14px rgba(52, 0, 5, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  z-index: 3;
+}
+
+.hero-image-seal::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(184, 148, 69, 0.4);
+  border-radius: 50%;
+}
+
+.hero-image-seal i {
+  color: var(--gold-bright);
+  font-size: 1.5rem;
+}
+
+.hero-image-seal span {
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
 }
 
 .briefing-card {

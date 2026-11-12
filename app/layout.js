@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'Mizan Law Firm',
     images: [
       {
-        url: '/images/mizan-logo.png',
+        url: '/images/mizan-logo.jpeg',
         width: 747,
         height: 611,
         alt: 'Mizan Law Firm Logo',

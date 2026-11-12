@@ -740,7 +740,7 @@ export default function HomePage() {
           {/* Brand */}
           <a href="#home" className="brand" onClick={(e) => handleSmoothScroll(e, '#home')} aria-label="Mizan Law Firm">
             <img
-              src="/images/mizan-logo.png"
+              src="/images/mizan-logo.jpeg"
               alt="Mizan Law Firm Logo"
               className="brand-logo-img"
               width="54"
@@ -943,65 +943,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Live Case Briefing Card */}
+            {/* Right: Centerpiece Image */}
             <div className="hero-visual">
-              <div className="hero-seal">
-                <i className="fas fa-shield-halved"></i>
-                <span>MIZAN</span>
-              </div>
-              <div className="briefing-card">
-                <div className="briefing-header">
-                  <div className="briefing-dots">
-                    <span className="dot red"></span>
-                    <span className="dot yellow"></span>
-                    <span className="dot green"></span>
-                  </div>
-                  <div className="briefing-badge">
-                    <span className="live-indicator"></span>
-                    {t.hero.terminal.status}
-                  </div>
+              <div className="hero-image-frame">
+                <div className="hero-image-inner">
+                  <img
+                    src="/images/mizan-image.jpeg"
+                    alt="Mizan Law Firm — scales of justice"
+                    className="hero-image"
+                    loading="eager"
+                  />
                 </div>
-
-                <div className="briefing-grid">
-                  <div className="briefing-stat">
-                    <div className="stat-value">
-                      {t.hero.terminal.stat1Value}
-                    </div>
-                    <div className="stat-label">{t.hero.terminal.stat1Label}</div>
-                  </div>
-                  <div className="briefing-stat">
-                    <div className="stat-value">
-                      {t.hero.terminal.stat2Value}
-                    </div>
-                    <div className="stat-label">{t.hero.terminal.stat2Label}</div>
-                  </div>
-                  <div className="briefing-stat">
-                    <div className="stat-value">
-                      {t.hero.terminal.stat3Value}
-                    </div>
-                    <div className="stat-label">{t.hero.terminal.stat3Label}</div>
-                  </div>
-                  <div className="briefing-stat">
-                    <div className="stat-value">
-                      {t.hero.terminal.stat4Value}
-                    </div>
-                    <div className="stat-label">{t.hero.terminal.stat4Label}</div>
-                  </div>
-                </div>
-
-                <div className="briefing-feed">
-                  <div className="feed-line">
-                    <i className="fas fa-terminal"></i>
-                    <span>{t.hero.terminal.feed1}</span>
-                  </div>
-                  <div className="feed-line">
-                    <i className="fas fa-lock"></i>
-                    <span>{t.hero.terminal.feed2}</span>
-                  </div>
-                  <div className="feed-line active">
-                    <i className="fas fa-scale-balanced"></i>
-                    <span>{t.hero.terminal.feed3}</span>
-                  </div>
+                <div className="hero-image-seal">
+                  <i className="fas fa-shield-halved"></i>
+                  <span>MIZAN</span>
                 </div>
               </div>
             </div>
