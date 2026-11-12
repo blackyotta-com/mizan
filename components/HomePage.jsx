@@ -740,7 +740,7 @@ export default function HomePage() {
           {/* Brand */}
           <a href="#home" className="brand" onClick={(e) => handleSmoothScroll(e, '#home')} aria-label="Mizan Law Firm">
             <img
-              src="/images/mizan-logo.jpeg"
+              src="/images/mizan-logo-transparent.png"
               alt="Mizan Law Firm Logo"
               className="brand-logo-img"
               width="54"
@@ -948,7 +948,7 @@ export default function HomePage() {
               <div className="hero-image-frame">
                 <div className="hero-image-inner">
                   <img
-                    src="/images/mizan-image.jpeg"
+                    src="/images/mizan-image-transparent.png"
                     alt="Mizan Law Firm — scales of justice"
                     className="hero-image"
                     loading="eager"
