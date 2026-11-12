@@ -309,7 +309,7 @@ const CONTENT = {
       tag: 'استشارات قانونية وتحقيقات رقمية متقدمة • أربيل وبغداد ودولياً',
       titleStart: 'ندافع عن حقوقك.',
       titleGradient: 'ونحمي أمانك في العالم الرقمي.',
-      lead: 'تمزج شركة ميزان بين الدفاع القضائي الحاسم والتحقيقات الجنائية الرقمية المعتمدة. نمثل الأفراد ورجال الأعمال والشركات في أصعب النزاعات القضائية، والابتزاز الإلكتروني، واختراق البيانات، وانتهاك الملكية الفكرية.',
+      lead: 'تمزج شركة ميزان بين الدفاع القضائي الحاسم والتحقيقات الجنائية الرقمية المعتمدة، وتمثل الأفراد ورجال الأعمال والشركات في النزاعات القضائية، والابتزاز الإلكتروني، واختراق البيانات، وانتهاك الملكية الفكرية. كما تتخصص في تقديم الخدمات والاستشارات القانونية والتنظيمية لقطاعات الاتصالات وتكنولوجيا المعلومات والتحول الرقمي والذكاء الاصطناعي، بما يشمل تنظيم عقود الاتصالات والتكنولوجيا، وتمثيل الشركات أمام الجهات التنظيمية والقضائية.',
       pills: [
         { icon: 'fa-scale-balanced', text: 'التقاضي والتحكيم التجاري' },
         { icon: 'fa-shield-halved', text: 'الدفاع السيبراني ومكافحة الابتزاز' },
@@ -1038,7 +1038,7 @@ export default function HomePage() {
             <div className="comparison-box">
               <div style={{ textAlign: 'center', marginBottom: '32px' }}>
                 <span className="section-tag">{t.whyMizan.comparisonTag}</span>
-                <h3 style={{ fontSize: '1.5rem', color: '#ffffff' }}>{t.whyMizan.comparisonTitle}</h3>
+                <h3 style={{ fontSize: '1.5rem', color: '#F8F4EC' }}>{t.whyMizan.comparisonTitle}</h3>
               </div>
               <div className="comparison-grid">
                 <div className="comparison-col">
@@ -1073,7 +1073,7 @@ export default function HomePage() {
                   <ul>
                     {t.whyMizan.compMizanList.map((item, idx) => (
                       <li key={idx}>
-                        <i className="fas fa-check" style={{ color: '#c8a24d' }}></i>
+                        <i className="fas fa-check" style={{ color: '#B89445' }}></i>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -1350,7 +1350,7 @@ export default function HomePage() {
                         style={{ appearance: 'auto' }}
                       >
                         {t.contact.serviceOptions.map((opt, i) => (
-                          <option key={i} value={opt} style={{ background: '#0b1019', color: '#fff' }}>
+                          <option key={i} value={opt} style={{ background: '#4A0008', color: '#F8F4EC' }}>
                             {opt}
                           </option>
                         ))}
@@ -1575,16 +1575,16 @@ export default function HomePage() {
             <div className="footer-col">
               <h4>{t.footer.contactTitle}</h4>
               <ul className="footer-links" style={{ gap: '14px' }}>
-                <li style={{ color: '#94a3b8' }}>
-                  <i className="fas fa-location-dot" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                <li style={{ color: '#C4A98F' }}>
+                  <i className="fas fa-location-dot" style={{ color: '#B89445', marginRight: '8px' }}></i>
                   {t.contact.locationValue}
                 </li>
                 <li>
-                  <i className="fas fa-phone" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                  <i className="fas fa-phone" style={{ color: '#B89445', marginRight: '8px' }}></i>
                   <a href="tel:+9647504490696">+964 750 449 0696</a>
                 </li>
                 <li>
-                  <i className="fas fa-envelope" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                  <i className="fas fa-envelope" style={{ color: '#B89445', marginRight: '8px' }}></i>
                   <a href="mailto:Contact@The-Mizan.net">Contact@The-Mizan.net</a>
                 </li>
               </ul>

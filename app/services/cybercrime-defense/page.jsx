@@ -87,7 +87,7 @@ export default function CybercrimeDefense() {
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
             <Link href="/#services">{isAr ? 'مجالات الممارسة' : 'Practice Areas'}</Link>
             <i className={`fas ${isAr ? 'fa-chevron-left' : 'fa-chevron-right'}`} style={{ fontSize: '0.7rem' }}></i>
-            <span style={{ color: '#c8a24d' }}>
+            <span style={{ color: '#B89445' }}>
               {isAr ? 'الدفاع عن الجرائم الإلكترونية' : 'Cybercrime Defense'}
             </span>
           </nav>
@@ -211,25 +211,25 @@ export default function CybercrimeDefense() {
 
               {/* Other Services Navigation */}
               <div className="sidebar-links-card">
-                <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '16px' }}>
+                <h4 style={{ fontSize: '1rem', color: '#F8F4EC', marginBottom: '16px' }}>
                   {isAr ? 'مجالات ممارسة أخرى' : 'Other Practice Areas'}
                 </h4>
                 <ul className="sidebar-links-list">
                   <li>
                     <Link href="/services/digital-forensics">
-                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                      <i className="fas fa-magnifying-glass-chart" style={{ color: '#B89445', marginRight: '8px' }}></i>
                       {isAr ? 'الأدلة الجنائية الرقمية' : 'Digital Forensics'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/general-law">
-                      <i className="fas fa-scale-balanced" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                      <i className="fas fa-scale-balanced" style={{ color: '#B89445', marginRight: '8px' }}></i>
                       {isAr ? 'القانون العام والتقاضي' : 'General Litigation'}
                     </Link>
                   </li>
                   <li>
                     <Link href="/services/ip-rights">
-                      <i className="fas fa-copyright" style={{ color: '#c8a24d', marginRight: '8px' }}></i>
+                      <i className="fas fa-copyright" style={{ color: '#B89445', marginRight: '8px' }}></i>
                       {isAr ? 'الملكية الفكرية والعلامات' : 'IP & Online Rights'}
                     </Link>
                   </li>
@@ -243,7 +243,7 @@ export default function CybercrimeDefense() {
       {/* Footer */}
       <footer className="site-footer">
         <div className="container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.88rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '0.88rem', color: '#C4A98F' }}>
             {isAr
               ? '© 2026 شركة ميزان للمحاماة والاستشارات القانونية والأدلة الرقمية. جميع الحقوق محفوظة.'
               : '© 2026 Mizan Law Firm. Legal Services & Cyber Defense. All rights reserved.'}
